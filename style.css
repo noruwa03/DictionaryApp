@@ -200,6 +200,7 @@ header .end-item select {
   padding: 0.3rem 0.4rem;
   font-size: 1em;
   font-family: inherit;
+  background-color: transparent;
 }
 
 .search {
@@ -242,7 +243,7 @@ input[type="search"]:focus {
 }
 
 .word-audio-player .player {
-  border: 2px solid #1e293b;
+  border: 2px solid #64748b;
   padding: 0.8rem 3rem;
   border-radius: 2rem;
   display: grid;
@@ -257,7 +258,7 @@ input[type="search"]:focus {
 }
 
 .word-audio-player .player .flex-item .icon {
-  fill: #1e293b;
+  fill: #64748b;
 }
 
 .word-audio-player .player .flex-item p {
@@ -401,7 +402,6 @@ input[type="search"]:focus {
 
   input[type="search"] {
     width: 100%;
-      padding: 10px 4px 10px 40px;
   }
 
   .word-audio-player {
