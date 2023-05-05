@@ -108,7 +108,8 @@ body.WorkSans {
   color: #fff;
 }
 
-.dark .col-span-8 .flex-item .synomyms span {
+.dark .col-span-8 .flex-item .synomyms span,
+.dark .col-span-8 .flex-item .antonyms span {
   background-color: #374151;
   color: #fff;
 }
@@ -246,6 +247,7 @@ input[type="search"]:focus {
 .word-audio-player h1 {
   font-size: 7em;
   text-transform: capitalize;
+  margin-right: 2rem;
 }
 
 .word-audio-player .player {
@@ -324,18 +326,25 @@ ol {
   gap: 2rem;
 }
 
-.col-span-8 .flex-item .synomyms {
+.col-span-8 .flex-item .antonyms {
+  margin: 1rem 0;
+}
+
+.col-span-8 .flex-item .synomyms,
+.col-span-8 .flex-item .antonyms {
   display: flex;
   align-items: flex-start;
   justify-content: flex-start;
   flex-wrap: wrap;
 }
 
-.col-span-8 .flex-item .synomyms p {
+.col-span-8 .flex-item .synomyms p,
+.col-span-8 .flex-item .antonyms p {
   margin-right: 0.7rem;
 }
 
-.col-span-8 .flex-item .synomyms span {
+.col-span-8 .flex-item .synomyms span,
+.col-span-8 .flex-item .antonyms span {
   background-color: #f3f4f6;
   display: flex;
   padding: 0.5rem 0.7rem;
@@ -481,6 +490,7 @@ ol {
   }
   .word-audio-player h1 {
     font-size: 3em;
+    margin-right: 2rem;
   }
 
   .search {

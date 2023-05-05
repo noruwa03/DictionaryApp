@@ -97,21 +97,38 @@ function initializeSearch() {
               .join("")}
           </ul>
 
-          <div class="flex-item">
+           ${
+             res.antonyms.length === 0
+               ? ""
+               : `<div class="flex-item">
+           
+            <div class="antonyms">
+             <p>Antonyms: </p>
+              ${res.antonyms
+                .map((res) => {
+                  return `<span>${res} </span>`;
+                })
+                .join("")}
+            </div>
+          </div>`
+           }
+
+          ${
+            res.synonyms.length === 0
+              ? ""
+              : `<div class="flex-item">
            
             <div class="synomyms">
              <p>Synomyms: </p>
-              ${
-                res.synonyms.length === 0
-                  ? "N/A"
-                  : ` ${res.synonyms
-                      .map((res) => {
-                        return `<span>${res} </span>`;
-                      })
-                      .join("")}`
-              }
+              ${res.synonyms
+                .map((res) => {
+                  return `<span>${res} </span>`;
+                })
+                .join("")}
             </div>
-          </div>
+          </div>`
+          }
+          
         </div>
       </div> `;
         })
