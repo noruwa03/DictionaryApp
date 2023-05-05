@@ -151,7 +151,9 @@ function initializeSearch() {
           </div>
           `;
         data[0].phonetics.length > 1
-          ? audioRef.setAttribute("src", data[0].phonetics[1].audio)
+          ? data[0].phonetics[0].audio.length === 0
+            ? audioRef.setAttribute("src", data[0].phonetics[1].audio)
+            : audioRef.setAttribute("src", data[0].phonetics[0].audio)
           : data[0].phonetics.length === 0
           ? audioRef.setAttribute("src", "")
           : "";
@@ -162,8 +164,6 @@ function initializeSearch() {
           <p>we could not find the word you where looking for.</p>
           <a href="/">Try again</a>
         </div>`;
-
-       
       });
   }
 }
