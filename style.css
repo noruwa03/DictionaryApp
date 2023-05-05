@@ -326,9 +326,13 @@ ol {
 
 .col-span-8 .flex-item .synomyms {
   display: flex;
-  align-items: center;
-  justify-content: space-between;
+  align-items: flex-start;
+  justify-content: flex-start;
   flex-wrap: wrap;
+}
+
+.col-span-8 .flex-item .synomyms p {
+  margin-right: 0.7rem;
 }
 
 .col-span-8 .flex-item .synomyms span {
@@ -592,5 +596,9 @@ ol {
 
   .col-span-8 h2 {
     font-size: 1.2em;
+  }
+
+  .error-modal h1 {
+    font-size: 1.34em;
   }
 }

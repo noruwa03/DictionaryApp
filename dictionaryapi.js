@@ -98,8 +98,9 @@ function initializeSearch() {
           </ul>
 
           <div class="flex-item">
-            <p>Synomyms</p>
+           
             <div class="synomyms">
+             <p>Synomyms: </p>
               ${
                 res.synonyms.length === 0
                   ? "N/A"
