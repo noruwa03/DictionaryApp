@@ -36,7 +36,7 @@ function initializeSearch() {
       .then((data) => {
         document.querySelector(".loading").remove();
         inputWordRef.value = "";
-        console.log(data[0].phonetics)
+
 
         playerRef.innerHTML = `
     <div class="word-audio-player">
