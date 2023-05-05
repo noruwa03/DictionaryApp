@@ -256,6 +256,7 @@ input[type="search"]:focus {
   border-radius: 2rem;
   display: grid;
   place-content: center;
+  cursor: pointer;
 }
 
 .word-audio-player .player .flex-item {
