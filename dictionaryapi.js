@@ -34,8 +34,6 @@ function initializeSearch() {
     )
       .then((res) => res.json())
       .then((data) => {
-        console.log(data[0]);
-
         document.querySelector(".loading").remove();
         inputWordRef.value = "";
 
@@ -154,9 +152,11 @@ function initializeSearch() {
           `;
         data[0].phonetics.length > 1
           ? audioRef.setAttribute("src", data[0].phonetics[1].audio)
+          : data[0].phonetics[0].audio === ""
+          ? audioRef.setAttribute("src", "")
           : "";
       })
-      .catch((err) => {
+      .catch(() => {
         errorRef.innerHTML = `<div class="error-modal">
           <h1>Word definition cannot be found</h1>
           <p>we could not find the word you where looking for.</p>
