@@ -36,39 +36,72 @@ function initializeSearch() {
       .then((data) => {
         document.querySelector(".loading").remove();
         inputWordRef.value = "";
+        console.log(data[0].phonetics)
 
-        playerRef.innerHTML = `<div class="word-audio-player">
-            <h1>${data[0].word}</h1>
+        playerRef.innerHTML = `
+    <div class="word-audio-player">
+      <h1>${data[0].word}</h1>
 
-             ${
-               data[0].phonetics.length > 1
-                 ? ` <div class="player" >
-              <div class="flex-item">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="30"
-                  height="30"
-                  fill="currentColor"
-                  class="bi bi-play-circle icon"
-                  viewBox="0 0 16 16"
-                >
-                  <path
-                    d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"
-                  />
-                  <path
-                    d="M6.271 5.055a.5.5 0 0 1 .52.038l3.5 2.5a.5.5 0 0 1 0 .814l-3.5 2.5A.5.5 0 0 1 6 10.5v-5a.5.5 0 0 1 .271-.445z"
-                  />
-                </svg>
-                <p>${
-                  data[0].phonetic ? data[0].phonetic : `/${data[0].word}/`
-                }</p>
-              </div>
-            </div>
-          </div>
-`
-                 : ""
-             }
-`;
+      ${ data[0].phonetics.length > 1 ? data[0].phonetics[0].audio.length === 0 ? data[0].phonetics[1].audio.length === 0 ? '' : `<div class="player">
+        <div class="flex-item">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="30"
+            height="30"
+            fill="currentColor"
+            class="bi bi-play-circle icon"
+            viewBox="0 0 16 16"
+          >
+            <path
+              d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"
+            />
+            <path
+              d="M6.271 5.055a.5.5 0 0 1 .52.038l3.5 2.5a.5.5 0 0 1 0 .814l-3.5 2.5A.5.5 0 0 1 6 10.5v-5a.5.5 0 0 1 .271-.445z"
+            />
+          </svg>
+          <p>${ data[0].phonetic ? data[0].phonetic : `/${data[0].word}/` }</p>
+        </div>
+      </div>` : `<div class="player">
+        <div class="flex-item">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="30"
+            height="30"
+            fill="currentColor"
+            class="bi bi-play-circle icon"
+            viewBox="0 0 16 16"
+          >
+            <path
+              d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"
+            />
+            <path
+              d="M6.271 5.055a.5.5 0 0 1 .52.038l3.5 2.5a.5.5 0 0 1 0 .814l-3.5 2.5A.5.5 0 0 1 6 10.5v-5a.5.5 0 0 1 .271-.445z"
+            />
+          </svg>
+          <p>${ data[0].phonetic ? data[0].phonetic : `/${data[0].word}/` }</p>
+        </div>
+      </div>` : data[0].phonetics.length === 0 ? '' : data[0].phonetics[0].audio.length === 0 ? '' : `<div class="player">
+        <div class="flex-item">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="30"
+            height="30"
+            fill="currentColor"
+            class="bi bi-play-circle icon"
+            viewBox="0 0 16 16"
+          >
+            <path
+              d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"
+            />
+            <path
+              d="M6.271 5.055a.5.5 0 0 1 .52.038l3.5 2.5a.5.5 0 0 1 0 .814l-3.5 2.5A.5.5 0 0 1 6 10.5v-5a.5.5 0 0 1 .271-.445z"
+            />
+          </svg>
+          <p>${ data[0].phonetic ? data[0].phonetic : `/${data[0].word}/` }</p>
+        </div>
+      </div>`  }
+    </div>
+    `;
 
         detailWrapperRef.innerHTML = `
           
@@ -151,12 +184,11 @@ function initializeSearch() {
           </div>
           `;
         data[0].phonetics.length > 1
-          ? data[0].phonetics[0].audio.length === 0
-            ? audioRef.setAttribute("src", data[0].phonetics[1].audio)
+          ? data[0].phonetics[0].audio.length === 0 ? audioRef.setAttribute("src", data[0].phonetics[1].audio)
             : audioRef.setAttribute("src", data[0].phonetics[0].audio)
           : data[0].phonetics.length === 0
           ? audioRef.setAttribute("src", "")
-          : "";
+          : audioRef.setAttribute("src", data[0].phonetics[0].audio);
       })
       .catch(() => {
         errorRef.innerHTML = `<div class="error-modal">
